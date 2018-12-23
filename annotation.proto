@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package net.niole.annotator;
+
+// broadcast the saved annotations back to the clients
+// send annotations to the server
+
+message Annotation {
+  // url location of webpage
+  string location = 1;
+
+  // annotation content
+  string description = 2;
+
+  // x location on page
+  int32 page_x = 3;
+
+  // y location on page
+  int32 page_y = 4;
+}
+
+service AnnotationService {
+  // user generated annotations including JS client generated annotations
+  // go to server, server broadcasts saved annotations
+  rpc StreamAnnotations(stream Annotation) returns (stream Annotation);
+}
