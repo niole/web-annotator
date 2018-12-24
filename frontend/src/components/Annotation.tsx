@@ -9,7 +9,7 @@ const Annotation: React.SFC<Props> = ({
   PageX,
   PageY,
 }) => (
-  <div>
+  <div style={{ left: PageX, top: PageY, position: 'absolute' }}>
     {Location}
     {Description}
     {PageX}
